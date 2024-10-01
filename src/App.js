@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
+import Home from './cmp/homepage/index.jsx';
+import Tna from './cmp/tna_form/index.jsx';
+import Extra from './cmp/extrapage/index.jsx';
+import Pagenotfound from './cmp/page_not_found/index.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Routes>
+        <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Tna />} />
+          <Route path="/extra" element={<Extra />} />
+          <Route path="*" element={<Pagenotfound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
